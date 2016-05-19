@@ -264,9 +264,9 @@ namespace SimpleWeb {
                         std::shared_ptr<boost::asio::deadline_timer> timer;
                         if(timeout_content>0)
                             timer=set_timeout_on_socket(socket, timeout_content);
-                        unsigned long long content_length;
+                        size_t content_length;
                         try {
-                            content_length=stoull(it->second);
+                            content_length=(size_t)stoull(it->second);
                         }
                         catch(const std::exception &) {
                             return;
